@@ -105,9 +105,7 @@
       </div>
 
       
-      <button class="theme-toggle" title="Cambiar Tema" onclick="toggleThemeLoginCliente()">
-        <i class="material-icons-round" id="theme-icon-login">light_mode</i>
-      </button>
+      
 
     </div>
 
@@ -125,14 +123,17 @@
 
     <aside class="sidebar" id="sidebar">
 
-      <div style="padding:20px 10px 0 10px">
-        <button class="nav-item" id="btn-toggle-desktop" onclick="document.getElementById('sidebar').classList.toggle('collapsed')" style="background:0 0;border:none;width:100%;cursor:pointer">
-          <span class="material-icons-round">menu_open</span>
-          <span class="menu-text">OCULTAR MENÚ</span>
-        </button>
+      
+      <div id="sidebar-image-container" style="padding:20px 10px 0 10px;text-align:center">
+        <img src="assets/mascot/innovanet_bot.png" alt="Mascota Innovanet" style="max-width:75%;height:auto;filter:drop-shadow(0 8px 15px rgba(0,0,0,.25));transition:transform .3s ease">
       </div>
 
       <ul class="nav-links">
+
+        <li class="nav-item" id="btn-toggle-desktop" onclick="document.getElementById('sidebar').classList.toggle('collapsed')">
+          <span class="material-icons-round">menu_open</span>
+          <span class="menu-text">OCULTAR MENÚ</span>
+        </li>
 
         <li class="nav-item" onclick="nav('inicio',this)">
           <span class="material-icons-round">home</span>
@@ -207,16 +208,7 @@
           <span class="menu-text">RANKING</span>
         </li>
 
-        <div class="theme-switch-wrapper">
-          <div class="theme-switch-label menu-text">
-            <span class="material-icons-round">dark_mode</span>
-            <span>OSCURO</span>
-          </div>
-          <label class="theme-switch">
-            <input type="checkbox" id="client-theme-toggle">
-            <span class="theme-slider"></span>
-          </label>
-        </div>
+        
 
 
         <li class="nav-item logout-link" onclick="logout()" style="margin-top:0">
@@ -588,7 +580,8 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <script src="app.min.js?v=1784501337106"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){window.particlesJS&&particlesJS('particles-app',{particles:{number:{value:70,density:{enable:!0,value_area:800}},color:{value:'#1e3a8a'},shape:{type:'circle'},opacity:{value:.6,random:!1},size:{value:3,random:!0},line_linked:{enable:!0,distance:150,color:'#1e3a8a',opacity:.4,width:1},move:{enable:!0,speed:2,direction:'none',random:!1,straight:!1,out_mode:'out',bounce:!1}},interactivity:{detect_on:'canvas',events:{onhover:{enable:!0,mode:'grab'},onclick:{enable:!0,mode:'push'},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},push:{particles_nb:3}}},retina_detect:!0})})</script>
+  <script src="app.min.js?v=1784597486739"></script>
 </body>
-
 </html>
