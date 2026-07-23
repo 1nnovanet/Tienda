@@ -124,7 +124,7 @@
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     <aside class="sidebar" id="sidebar">
-
+      <script>window.innerWidth<=768&&document.getElementById('sidebar').classList.add('collapsed')</script>
       
       <div id="sidebar-image-container" style="padding:20px 10px 0 10px;text-align:center">
         <img src="assets/mascot/innovanet_bot.png" alt="Mascota Innovanet" style="max-width:75%;height:auto;filter:drop-shadow(0 8px 15px rgba(0,0,0,.25));transition:transform .3s ease">
@@ -201,10 +201,6 @@
           </li>
         </ul>
 
-        <li class="nav-item" onclick="nav('codigos',this)">
-          <span class="material-icons-round">vpn_key</span>
-          <span class="menu-text">CÓDIGOS</span>
-        </li>
         <li class="nav-item" onclick="nav('ranking',this)">
           <span class="material-icons-round">emoji_events</span>
           <span class="menu-text">RANKING</span>
@@ -268,12 +264,17 @@
         </div>
 
         <div class="inicio-dashboard-hero">
-          <div class="dashboard-user-info">
-            <div class="dashboard-greeting">Bienvenido de vuelta,</div>
+          <div class="dashboard-user-info" style="display:flex;flex-direction:column;gap:15px;justify-content:center">
+            <div>
+              <div class="dashboard-greeting" style="margin-bottom:4px">Bienvenido de vuelta,</div>
+              <h1 class="dashboard-name" id="inicio-user-name-display" style="margin:0;line-height:1">Cliente</h1>
+            </div>
             <div style="display:flex;align-items:center;gap:15px;flex-wrap:wrap">
-              <h1 class="dashboard-name" id="inicio-user-name-display" style="margin:0">Cliente</h1>
               <button onclick="abrirModalWspBot(!0)" style="background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;padding:10px 22px;border-radius:25px;font-weight:900;font-size:1rem;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:all .3s;position:relative;z-index:10" onmouseover="this.style.transform='translateY(-3px)',this.style.boxShadow='0 8px 25px rgba(37, 211, 102, 0.5)'" onmouseout="this.style.transform='translateY(0)',this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.4)'">
                 <i class="fab fa-whatsapp" style="font-size:1.4rem"></i> ASISTENTE VIP
+              </button>
+              <button onclick="window.open('https://wa.me/573202888501?text=Hola,%20necesito%20solicitar%20c%C3%B3digos','_blank')" style="background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:10px 22px;border-radius:25px;font-weight:900;font-size:1rem;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(249,115,22,.4);transition:all .3s;position:relative;z-index:10" onmouseover="this.style.transform='translateY(-3px)',this.style.boxShadow='0 8px 25px rgba(249, 115, 22, 0.5)'" onmouseout="this.style.transform='translateY(0)',this.style.boxShadow='0 6px 20px rgba(249, 115, 22, 0.4)'">
+                <i class="fab fa-whatsapp" style="font-size:1.4rem"></i> SOLICITAR CÓDIGOS
               </button>
             </div>
           </div>
@@ -469,7 +470,6 @@
         </div>
       </div>
 
-      <div id="sec-codigos" class="hidden"></div>
       <div id="sec-datos" class="hidden"></div>
       <div id="sec-tokens" class="hidden"></div>
       <div id="sec-ranking" class="hidden">
@@ -586,13 +586,13 @@
     </div>
 
   </div>
-  <script>document.addEventListener('DOMContentLoaded',async()=>{if('undefined'!=typeof NOMBRE_NEGOCIO){document.title=NOMBRE_NEGOCIO;const t=document.getElementById('site-logo');t&&(t.alt=`Logo ${NOMBRE_NEGOCIO}`)}const t='dw_branding_cache',e=(t,e)=>{if(t){const e=document.getElementById('site-logo');e&&(e.src=t)}if(e){const t=document.getElementById('login-banner');t&&(t.style.backgroundImage=`url('${e}')`)}};window.hasConsentidoWsp=function(){try{const t=localStorage.getItem('dw_perfil_datos_v2');if(t){const e=JSON.parse(t);if(e&&e.datos){const t=e.datos.consentimiento||e.datos.Consentimiento||'No';return'si'===t.toLowerCase()||'s\xed'===t.toLowerCase()}}}catch(t){}return!1},window.abrirModalWspBot=function(t=!1){if(t&&window.hasConsentidoWsp())return void window.open('https://wa.me/'+NUMERO_WSP+'?text=Hola,%20quiero%20informaci%C3%B3n','_blank');const e=document.getElementById('wsp-bot-overlay'),o=document.getElementById('wsp-bot-modal');e&&e.classList.remove('hidden'),o&&o.classList.add('active')},window.cerrarModalWspBot=function(){const t=document.getElementById('wsp-bot-overlay'),e=document.getElementById('wsp-bot-modal');t&&t.classList.add('hidden'),e&&e.classList.remove('active')},setTimeout(()=>{const t=sessionStorage.getItem('wsp_bot_modal_seen'),e=document.getElementById('login-view');t||!e||'none'!==e.style.display&&!e.classList.contains('dw-oculto')||window.hasConsentidoWsp()||(window.abrirModalWspBot(),sessionStorage.setItem('wsp_bot_modal_seen','true'))},3e3);const o=new MutationObserver(t=>{t.forEach(t=>{if('style'===t.attributeName||'class'===t.attributeName){const t=document.getElementById('login-view');!t||'none'!==t.style.display&&!t.classList.contains('dw-oculto')||sessionStorage.getItem('wsp_bot_modal_seen')||window.hasConsentidoWsp()||setTimeout(()=>{window.abrirModalWspBot(),sessionStorage.setItem('wsp_bot_modal_seen','true')},1e3)}})}),s=document.getElementById('login-view');s&&o.observe(s,{attributes:!0});try{const o=localStorage.getItem(t);if(o){const t=JSON.parse(o);if((new Date).getTime()-t.timestamp<36e5)return void e(t.logo,t.banner)}const s=await fetch(`${API_BASE_URL_CLIENTE}/dw_api.php`,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'accion=getConfiguracion'}),n=await s.json();if(n.success&&n.datos){let o=n.datos.logo||'',s=n.datos.banner||'';o&&(o.includes('uc?export=view&id=')?o=o.replace('uc?export=view&id=','thumbnail?id=')+'&sz=w400':o.startsWith('http')||o.startsWith('data:')||(o=API_BASE_URL_CLIENTE+'/uploads/categorias/'+o)),s&&(s.includes('uc?export=view&id=')?s=s.replace('uc?export=view&id=','thumbnail?id=')+'&sz=w1200':s.startsWith('http')||s.startsWith('data:')||(s=API_BASE_URL_CLIENTE+'/uploads/categorias/'+s)),e(o,s),localStorage.setItem(t,JSON.stringify({logo:o,banner:s,timestamp:(new Date).getTime()}))}}catch(o){console.warn('No se pudo cargar el branding din\xe1mico, usando plan de respaldo:',o);const s=localStorage.getItem(t);if(s){const t=JSON.parse(s);e(t.logo,t.banner)}}})</script>
+  <script>document.addEventListener('DOMContentLoaded',async()=>{if('undefined'!=typeof NOMBRE_NEGOCIO){document.title=NOMBRE_NEGOCIO;const t=document.getElementById('site-logo');t&&(t.alt=`Logo ${NOMBRE_NEGOCIO}`)}const t='dw_branding_cache',e=(t,e)=>{if(t){const e=document.getElementById('site-logo');e&&(e.src=t)}if(e){const t=document.getElementById('login-banner');t&&(t.style.backgroundImage=`url('${e}')`)}};window.hasConsentidoWsp=function(){try{const t=localStorage.getItem('dw_perfil_datos_v2');if(t){const e=JSON.parse(t);if(e&&e.datos){const t=e.datos.consentimiento||e.datos.Consentimiento||'No';return'si'===t.toLowerCase()||'s\xed'===t.toLowerCase()}}}catch(t){}return!1},window.abrirModalWspBot=function(t=!1){if(t&&window.hasConsentidoWsp())return void window.open('https://wa.me/'+NUMERO_WSP+'?text=Hola,%20quiero%20informaci%C3%B3n','_blank');const e=document.getElementById('wsp-bot-overlay'),o=document.getElementById('wsp-bot-modal');e&&e.classList.remove('hidden'),o&&o.classList.add('active')},window.cerrarModalWspBot=function(){const t=document.getElementById('wsp-bot-overlay'),e=document.getElementById('wsp-bot-modal');t&&t.classList.add('hidden'),e&&e.classList.remove('active')};try{const o=localStorage.getItem(t);if(o){const t=JSON.parse(o);if((new Date).getTime()-t.timestamp<36e5)return void e(t.logo,t.banner)}const n=await fetch(`${API_BASE_URL_CLIENTE}/dw_api.php`,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'accion=getConfiguracion'}),a=await n.json();if(a.success&&a.datos){let o=a.datos.logo||'',n=a.datos.banner||'';o&&(o.includes('uc?export=view&id=')?o=o.replace('uc?export=view&id=','thumbnail?id=')+'&sz=w400':o.startsWith('http')||o.startsWith('data:')||(o=API_BASE_URL_CLIENTE+'/uploads/categorias/'+o)),n&&(n.includes('uc?export=view&id=')?n=n.replace('uc?export=view&id=','thumbnail?id=')+'&sz=w1200':n.startsWith('http')||n.startsWith('data:')||(n=API_BASE_URL_CLIENTE+'/uploads/categorias/'+n)),e(o,n),localStorage.setItem(t,JSON.stringify({logo:o,banner:n,timestamp:(new Date).getTime()}))}}catch(o){console.warn('No se pudo cargar el branding din\xe1mico, usando plan de respaldo:',o);const n=localStorage.getItem(t);if(n){const t=JSON.parse(n);e(t.logo,t.banner)}}})</script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>document.addEventListener('DOMContentLoaded',function(){window.particlesJS&&particlesJS('particles-app',{particles:{number:{value:70,density:{enable:!0,value_area:800}},color:{value:'#1e3a8a'},shape:{type:'circle'},opacity:{value:.6,random:!1},size:{value:3,random:!0},line_linked:{enable:!0,distance:150,color:'#1e3a8a',opacity:.4,width:1},move:{enable:!0,speed:2,direction:'none',random:!1,straight:!1,out_mode:'out',bounce:!1}},interactivity:{detect_on:'canvas',events:{onhover:{enable:!0,mode:'grab'},onclick:{enable:!0,mode:'push'},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},push:{particles_nb:3}}},retina_detect:!0})})</script>
-  <script src="app.min.js?v=1784770154087"></script>
+  <script src="app.min.js?v=1784780396412"></script>
 </body>
 </html>
